@@ -11,7 +11,7 @@ qgraph2dataframes <- function(p, scale_nodes, scale_edges){
     {df_nodes$size <- p$graphAttributes$Nodes$width
     }
   if(!missing(scale_nodes))
-    {f_nodes$size <- rescale(p$graphAttributes$Nodes$width, to = scale_nodes)
+    {df_nodes$size <- rescale(p$graphAttributes$Nodes$width, to = scale_nodes)
     }  
   
   df_nodes$color <- p$graphAttributes$Nodes$color
@@ -33,7 +33,7 @@ qgraph2dataframes <- function(p, scale_nodes, scale_edges){
     df_edges$width <- rescale(p$graphAttributes$Edges$width, to = scale_edges)
   }
   
-  network_data <- data.frame("nodes" = df_nodes, "edges" = df_edges)
+  network_data <- list(nodes = df_nodes, edges = df_edges)
   return(network_data)
 }
 
