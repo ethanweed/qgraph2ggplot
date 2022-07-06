@@ -8,7 +8,8 @@ basic_network_ggplot <- function(df){
                      xend = to.x, 
                      y=from.y, 
                      yend = to.y, 
-                     color = color)) +
+                     color = color),
+                 size = df$edges$width) +
     geom_point(data = df$nodes,aes(x=V1,y=V2),
                size = df$nodes$size + 0.8, 
                colour = "black") +
